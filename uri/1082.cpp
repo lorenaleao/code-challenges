@@ -9,7 +9,7 @@ void add_edge(vector<int> adj[], int u, int v){
 
 void dfs_util(int u, vector<int> adj[], vector<bool> &visited, set<char> &elems){
 	visited[u] = true;
-	elems.insert('a' + u);
+	elems.insert('a' + u); //log(n)
 
 	for(int i = 0; i < adj[u].size(); i++){
 		if(!visited[adj[u][i]])
