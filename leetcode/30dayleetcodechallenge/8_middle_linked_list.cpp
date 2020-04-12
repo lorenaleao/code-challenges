@@ -21,5 +21,21 @@ public:
         }
         
         return it;
+
+        /*
+        // errichto's solution
+
+        ListNode* A = head;
+        ListNode* B = head;
+
+        while(B != NULL){
+            B = B->next;
+            if(B == NULL)
+                return A;
+            A = A->next;
+            B = B->next;
+        }
+        return A;
+        */
     }
 };
