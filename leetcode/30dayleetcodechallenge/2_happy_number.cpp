@@ -9,9 +9,9 @@ public:
         }
         return sum;
     }
-    
+
     bool isHappy(int n) {
-        set<int> numbers;
+        unordered_set<int> numbers;
         
         n = sum_squares_digits(n);
         
