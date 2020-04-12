@@ -47,17 +47,10 @@ public:
         for(int i = 1; i < nums.size(); i++){
             int possible_next_solution = curr_sol + nums[i];
             
-            //cout << possible_next_solution << ' ' << curr_sol << ' ' << nums[i] << endl;
-            
-            if(nums[i] > possible_next_solution){
-                curr_sol = nums[i];
-            } else {
-                curr_sol = possible_next_solution;
-            }
-            
-            if(curr_sol > max_sum)
-                max_sum = curr_sol;
+            curr_sol = max(nums[i], possible_next_solution);
+            max_sum = max(max_sum, curr_sol);
         }
+        
         return max_sum;
     }
 };
