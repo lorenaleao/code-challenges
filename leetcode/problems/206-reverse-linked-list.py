@@ -4,7 +4,15 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def reverseList(self, head):
+    # Definition for singly-linked list.
+    # class ListNode(object):
+    #     def __init__(self, val=0, next=None):
+    #         self.val = val
+    #         self.next = next
+
+
+class Solution(object):
+    def reverseListIterative(self, head):
         """
         :type head: ListNode
         :rtype: ListNode
@@ -20,6 +28,21 @@ class Solution(object):
 
         head = prev
         return head
+
+    def reverseListAux(self, prev, tail):
+        if tail == None:
+            return prev
+        ret = self.reverseListAux(tail, tail.next)
+        tail.next = prev
+
+        return ret
+
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        return self.reverseListAux(None, head)
 
 
 """
