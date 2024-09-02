@@ -107,6 +107,3 @@ l.addListEnd([1,2,3,4,5,6])
 l.print()
 print(f"middleNode: {s.middleNode(l.head).data}")
 print(f"middleNodeRabbitTurtle: {s.middleNodeRabbitTurtle(l.head).data}")
-        
-        
-        
