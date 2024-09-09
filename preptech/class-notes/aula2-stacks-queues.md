@@ -8,7 +8,7 @@
 
 - [ ] https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/description/
 
-- [ ] https://leetcode.com/problems/daily-temperatures/submissions/1370468961
+- [x] https://leetcode.com/problems/daily-temperatures/submissions/1370468961
 
 - [ ] https://leetcode.com/problems/time-needed-to-buy-tickets/
 
