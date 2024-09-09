@@ -27,9 +27,9 @@ class Solution:
 
 ## Problemas
 
-- [ ] https://leetcode.com/problems/squares-of-a-sorted-array/
-- [ ] https://leetcode.com/problems/valid-anagram/
+- [x] https://leetcode.com/problems/squares-of-a-sorted-array/
+- [x] https://leetcode.com/problems/valid-anagram/
 - [ ] https://leetcode.com/problems/assign-cookies/
-- [ ] https://leetcode.com/problems/majority-element/description/
+- [x] https://leetcode.com/problems/majority-element/description/
 - [ ] https://leetcode.com/problems/wiggle-sort-ii/description/
 - [ ] https://leetcode.com/problems/majority-element-ii/description/
