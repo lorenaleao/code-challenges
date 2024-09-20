@@ -1,6 +1,5 @@
 class TrieNode:
     def __init__(self):
-        # Initialize links array and isEnd flag
         self.children = {}
         self.eow = False
 
