@@ -11,4 +11,5 @@
 
 ## Google Docs
 
-https://docs.google.com/document/d/1Bo2ry0WOCmXRpmvDrJHw0qxLKNUHvDwdFIyXSFLD7QE/edit?usp=sharing
+- Rodrigo: https://docs.google.com/document/d/1Bo2ry0WOCmXRpmvDrJHw0qxLKNUHvDwdFIyXSFLD7QE/edit?usp=sharing
+- Eduardo: https://docs.google.com/document/d/1Ho2shdm0YsB4hFgaHMYH1hBglgQQRqw84udeILO3dI0/edit?usp=sharing
