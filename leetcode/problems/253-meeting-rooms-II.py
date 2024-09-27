@@ -1,9 +1,10 @@
+from typing import List
 import math
 
 class MinHeap:
     def __init__(self) -> None:
         self.minheap = []
-    
+
     def len(self) -> int:
         return len(self.minheap)
     
@@ -65,26 +66,47 @@ class MinHeap:
     
     def peek(self) -> int:
         return self.minheap[0]
-    
-    def print(self) -> None:
-        print(self.minheap)
 
-h = MinHeap()
-print("inserting 2:")
-h.push(2)
-print("inserting 5:")
-h.push(5)
-print("inserting 9:")
-h.push(9)
-print("inserting 1:")
-h.push(1)
-print("inserting 18:")
-h.push(18)
-print("inserting 4:")
-h.push(4)
-print(h.peek())
-h.print()
-h.pop()
-h.print()
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        if len(intervals) == 0:
+            return 0
+        
+        # Sort the meetings based on the start time.
+        intervals.sort(key= lambda x: x[0])
+        # One room will be needed at least if we heave at least one meeting,
+        # so add the first meeting in the heap (rooms).
+        rooms = MinHeap()
+        rooms.push(intervals[0][1])
+        # Initialize maxRooms with 1 because we will read at least one room as
+        # said above.
+        maxRooms = 1
 
+        # Process the remaining meetings
+        for i in range(1, len(intervals)):
+            # Remove already finished meetings from the heap in comparison with
+            # the current meeting.
+            minEndMeeting = math.inf
+            if rooms.len() > 0:
+                minEndMeeting = rooms.peek()
+            
+            # If the current meeting start time is greater or equal the end
+            # time of the ones that are in the heap, they ended. So, remove it.
+            while intervals[i][0] >= minEndMeeting:
+                rooms.pop()
+                minEndMeeting = math.inf
+                if rooms.len() > 0:
+                    minEndMeeting = rooms.peek()
 
+            # Here, rooms will be empty or the start time of the current
+            # meeting is smaller than the first element in the heap, that is,
+            # the meeting that will end first of all meetings in the heap. In
+            # either case, we have to add the current meeting into the heap,
+            # because we will need another room.
+            rooms.push(intervals[i][1])
+
+            # Update the maxRooms with the current number of rooms.
+            if rooms.len() > maxRooms:
+                maxRooms = rooms.len()
+        
+        return maxRooms
