@@ -7,6 +7,7 @@ class Node:
         self.next = next
         self.random = random
 
+# There is no need to implement a hash function, the type is already hashable
 # class Node:
 #     def __hash__(self):
 #       return hash((self.val, self.next, self.random))
@@ -15,42 +16,30 @@ class Solution:
     def __init__(self):
         self.visited = {}
 
-    def initialize_nodes_map(self, head: 'Optional[Node]') -> 'dict[Node]':
-        nodes_map = {}
-        it = head
-        while it is not None:
-            nodes_map[it] = it
-            it = it.next
-        return nodes_map
+    def get_cloned_node(self, node: 'Optional[Node]') -> 'Optional[Node]':
+        if node is None:
+            return None
+        if node in self.visited:
+            return self.visited[node]
+        self.visited[node] = Node(node.val)
+        return self.visited[node]
 
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if head is None:
             return None
 
-        original_list = head
-        list_copy_head = Node(head.val)
-        self.visited[head] = list_copy_head
+        old_node = head
+        new_node = Node(head.val)
+        self.visited[old_node] = new_node
 
-        original_list = original_list.next
-        list_copy_it = list_copy_head 
+        while old_node is not None:
+            new_node.random = self.get_cloned_node(old_node.random)
+            new_node.next = self.get_cloned_node(old_node.next)
 
-        while original_list is not None:
-            next_node = Node(original_list.val)
-            list_copy_it.next = next_node 
-            self.visited[original_list] = list_copy_it.next
-            original_list = original_list.next
-            list_copy_it = list_copy_it.next
-    
-        original_list = head
-        list_copy_it = list_copy_head
-        while original_list is not None:
-            if original_list.random is not None:
-                new_node = self.visited[original_list.random]
-                list_copy_it.random = new_node
-            original_list = original_list.next
-            list_copy_it = list_copy_it.next
+            old_node = old_node.next
+            new_node = new_node.next
 
-        return list_copy_head
+        return self.visited[head]
 
 
 def create_linked_list(head_list):
